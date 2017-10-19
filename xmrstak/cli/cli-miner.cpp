@@ -59,7 +59,7 @@ void help()
 {
 	using namespace std;
 	using namespace xmrstak;
-	
+
 	cout<<"Usage: "<<params::inst().binaryName<<" [OPTION]..."<<endl;
 	cout<<" "<<endl;
 	cout<<"  -c, --config FILE     common miner configuration file"<<endl;
@@ -247,7 +247,7 @@ int main(int argc, char *argv[])
 		{
 			// clear everything from stdin to allow an empty password
 			std::cin.clear(); std::cin.ignore(INT_MAX,'\n');
-			std::cout<<"- password (mostly empty or x):"<<std::endl;	
+			std::cout<<"- password (mostly empty or x):"<<std::endl;
 			getline(std::cin, passwd);
 		}
 		configTpl.replace("POOLURL", pool);
@@ -280,6 +280,8 @@ int main(int argc, char *argv[])
 	}
 #endif
 
+	double donationLevel = jconf::inst()->GetDonationLevel();
+
 	printer::inst()->print_str("-------------------------------------------------------------------\n");
 	printer::inst()->print_str( XMR_STAK_NAME" " XMR_STAK_VERSION " mining software.\n");
 	printer::inst()->print_str("Based on CPU mining code by wolf9466 (heavily optimized by fireice_uk).\n");
@@ -291,7 +293,7 @@ int main(int argc, char *argv[])
 #endif
 	printer::inst()->print_str("Brought to you by fireice_uk and psychocrypt under GPLv3.\n\n");
 	char buffer[64];
-	snprintf(buffer, sizeof(buffer), "Configurable dev donation level is set to %.1f %%\n\n", fDevDonationLevel * 100.0);
+	snprintf(buffer, sizeof(buffer), "Configurable dev donation level is set to %.1f %%\n\n", donationLevel * 100.0);
 	printer::inst()->print_str(buffer);
 	printer::inst()->print_str("You can use following keys to display reports:\n");
 	printer::inst()->print_str("'h' - hashrate\n");
