@@ -1,3 +1,7 @@
+# WARNING!
+
+I have no idea what I'm doing, seriously I'm just doing diffs I still don't understand what makes the hash valid for XMR or Aeon. Use this at your own risk. I'm just having fun. I will get AMD working someday soon-ish. This dev branch will be 'master'. My releases come from feature branches right now the `aeon` branch and `donation-config` are the only ones I'll have.
+
 # XMR-Stak - Monero All-in-One Mining Software
 
 XMR-Stak is a universal Stratum pool miner. This miner supports CPUs, AMD and NVIDIA gpus.
