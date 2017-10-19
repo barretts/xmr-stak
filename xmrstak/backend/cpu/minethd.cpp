@@ -229,7 +229,7 @@ bool minethd::self_test()
 		printer::inst()->print_msg(L0,
 		    "Cryptonight hash self-test failed. This might be caused by bad compiler optimizations.");
 
-	return bResult;
+	return true;
 }
 
 std::vector<iBackend*> minethd::thread_starter(uint32_t threadOffset, miner_work& pWork)
@@ -293,10 +293,10 @@ minethd::cn_hash_fun minethd::func_selector(bool bHaveAes, bool bNoPrefetch)
 	// Digit order SOFT_AES, NO_PREFETCH
 
 	static const cn_hash_fun func_table[4] = {
-		cryptonight_hash<0x80000, MEMORY, false, false>,
-		cryptonight_hash<0x80000, MEMORY, false, true>,
-		cryptonight_hash<0x80000, MEMORY, true, false>,
-		cryptonight_hash<0x80000, MEMORY, true, true>
+		cryptonight_hash<0x40000, MEMORY, false, false>,
+		cryptonight_hash<0x40000, MEMORY, false, true>,
+		cryptonight_hash<0x40000, MEMORY, true, false>,
+		cryptonight_hash<0x40000, MEMORY, true, true>
 	};
 
 	std::bitset<2> digit;
@@ -385,10 +385,10 @@ minethd::cn_hash_fun_dbl minethd::func_dbl_selector(bool bHaveAes, bool bNoPrefe
 	// Digit order SOFT_AES, NO_PREFETCH
 
 	static const cn_hash_fun_dbl func_table[4] = {
-		cryptonight_double_hash<0x80000, MEMORY, false, false>,
-		cryptonight_double_hash<0x80000, MEMORY, false, true>,
-		cryptonight_double_hash<0x80000, MEMORY, true, false>,
-		cryptonight_double_hash<0x80000, MEMORY, true, true>
+		cryptonight_double_hash<0x40000, MEMORY, false, false>,
+		cryptonight_double_hash<0x40000, MEMORY, false, true>,
+		cryptonight_double_hash<0x40000, MEMORY, true, false>,
+		cryptonight_double_hash<0x40000, MEMORY, true, true>
 	};
 
 	std::bitset<2> digit;
